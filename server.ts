@@ -10,8 +10,8 @@ const port = +env.PORT || 5000;
 
 
 app.use(router.routes());
-app.use(authorizer.verifyLoginToken);
-app.use(protectedRoutes.routes());
+app.use(authorizer.verifyLoginToken); // Middleware for token authorization
+app.use(protectedRoutes.routes()); // Protected Routes
 app.use(router.allowedMethods());
 
 
