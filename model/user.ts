@@ -100,16 +100,20 @@ export default {
 
     },
 
-    read: async (ctx: any) => {
-        const users = await userModel.find({});
+    getUserData: async (ctx: any) => {
+        const tokenData = ctx.request.tokenData.payload.iss;
+        const id = tokenData._id.$oid;
+
+        const users = await userModel.findOne({_id: ObjectId(id)});
         ctx.response.body = {
             status: 200,
             users
         }
     },
 
-    edit: async (ctx: any) => {
-        const id = ctx.params.id;
+    editUserData: async (ctx: any) => {
+        const tokenData = ctx.request.tokenData.payload.iss;
+        const id = tokenData._id.$oid;
         const { value } = await ctx.request.body();
         try {
             await userModel.updateOne({_id: ObjectId(id)}, value);
@@ -127,8 +131,9 @@ export default {
         }
     },
 
-    delete: async (ctx: any) => {
-        const id = ctx.params.id;
+    deleteUser: async (ctx: any) => {
+        const tokenData = ctx.request.tokenData.payload.iss;
+        const id = tokenData._id.$oid;
         try {
             await userModel.deleteOne({ _id: ObjectId(id)});
             ctx.response.status = 204;

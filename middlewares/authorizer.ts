@@ -19,6 +19,7 @@ export default {
                     message: 'session has been expired!'
                 }
             } else {
+                ctx.request['tokenData'] = isTokenValid;
                 await next();
             }
         }
