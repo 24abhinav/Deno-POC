@@ -20,7 +20,7 @@ export default {
             }
             return;
         }
-        const checkDuplicacy = await db.collection('user').findOne({email: value.email});
+        const checkDuplicacy = await userModel.findOne({email: value.email});
         if(checkDuplicacy) {
             ctx.response.status = 409;
             ctx.response.body = {
@@ -58,7 +58,7 @@ export default {
             return;
         }
 
-        const userData = await db.collection('user').findOne({email: value.email});
+        const userData = await userModel.findOne({email: value.email});
         if(userData) {
 
             const checkPassword = await bcrypt.verifyPassword(value.password, userData.password);
