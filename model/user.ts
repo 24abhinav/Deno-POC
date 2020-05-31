@@ -69,7 +69,6 @@ export default {
                 });
                 if(token) {
                     ctx.response.status = 200;
-                    console.log(ctx);
                     ctx.response.body = {
                         status: 200,
                         message: 'Login successfull',
