@@ -1,9 +1,9 @@
 import { SmtpClient } from "https://deno.land/x/smtp/mod.ts";
-import { ConnectConfigWithAuthentication } from "https://raw.githubusercontent.com/manyuanrong/deno-smtp/master/config.ts";
+// import { ConnectConfigWithAuthentication } from "https://raw.githubusercontent.com/manyuanrong/deno-smtp/master/config.ts";
 
 const client = new SmtpClient();
 
-const params = <ConnectConfigWithAuthentication>{
+const params = {
     hostname: "smtp.gmail.com",
     port: 465,
     username: "abhinav.test.m@gmail.com",

@@ -1,12 +1,12 @@
 import { Application } from 'https://deno.land/x/oak/mod.ts';
 import { Cron } from "https://deno.land/x/cron/cron.ts";
 
-import { env } from './util/packages.ts';
+import { env } from './api/util/packages.ts';
 
-import router from './router/router.ts';
-import protectedRoutes from './router/protectedRoutes.ts';
-import authorizer from './middlewares/authorizer.ts';
-import cronService from './util/cron.ts';
+import router from './api/router/router.ts';
+import protectedRoutes from './api/router/protectedRoutes.ts';
+import authorizer from './api/middlewares/authorizer.ts';
+import cronService from './api/util/cron.ts';
 
 
 

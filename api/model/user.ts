@@ -36,7 +36,7 @@ export default {
             from: '',
             to: value.email,
             subject: 'Welcome to deno App',
-            content: 'This is a new deno App',
+            content: 'Sign up successfull',
         }
         ctx.response.status = 201;
         ctx.response.body = {
