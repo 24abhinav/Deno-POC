@@ -4,7 +4,6 @@ import { env } from '../util/packages.ts';
 
 const key = env.LOGIN_SECRET;
 const payload: Payload = {
-  iss: "joe",
   exp: setExpiration(new Date().getTime() + 600000),
 }
 const header: Jose = {
