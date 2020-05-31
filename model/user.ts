@@ -5,11 +5,12 @@ const userModel = db.collection('user');
 
 import bcrypt from '../util/bcrypt.ts';
 import tokenService from '../util/token.ts';
+import emailService from '../util/email.ts';
 
 
 export default {
 
-    create: async (ctx: any) => {
+    signUp: async (ctx: any) => {
         const {value} = await ctx.request.body();
         if(!value.email || !value.password) {
             ctx.response.status = 400;
@@ -26,17 +27,24 @@ export default {
                 status: 409,
                 message: 'User is alreday exist!'
             }
-
             return;
         }
 
         value.password = await bcrypt.encryptPassword(value.password);
         await userModel.insertOne(value);
+        const mailOption = {
+            from: '',
+            to: value.email,
+            subject: 'Welcome to deno App',
+            content: 'This is a new deno App',
+        }
         ctx.response.status = 201;
         ctx.response.body = {
             status: 201,
             message: 'User details addedd successfully',
+            mailOption
         }
+        emailService.sendEmail(mailOption);
     },
 
     login: async (ctx: any) => {
