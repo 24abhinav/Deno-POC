@@ -1,6 +1,6 @@
 
 
-import { db, ObjectId } from '../database.ts';
+import { db, ObjectId } from '../util/database.ts';
 const userModel = db.collection('user');
 
 import bcrypt from '../util/bcrypt.ts';
