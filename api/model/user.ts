@@ -32,7 +32,7 @@ export default {
         }
 
         value.password = await bcrypt.encryptPassword(value.password);
-        // await userModel.insertOne(value);
+        await userModel.insertOne(value);
         const mailOption = {
             from: '',
             to: value.email,
