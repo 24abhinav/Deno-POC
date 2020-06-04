@@ -32,20 +32,19 @@ export default {
         }
 
         value.password = await bcrypt.encryptPassword(value.password);
-        await userModel.insertOne(value);
+        // await userModel.insertOne(value);
         const mailOption = {
             from: '',
             to: value.email,
-            subject: 'Welcome to deno App ' + value.name ?? 'Guest',
+            subject: `Welcome to deno App ${value.name || 'Guest' }`,
             content: emailTemplate.signUpWelcome(value)
-        }
+        };
+        await emailService.sendEmail(mailOption);
         ctx.response.status = 201;
         ctx.response.body = {
             status: 201,
-            message: 'User details addedd successfully',
-            mailOption
+            message: 'User details addedd successfully'
         }
-        emailService.sendEmail(mailOption);
     },
 
     login: async (ctx: any) => {

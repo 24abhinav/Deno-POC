@@ -20,14 +20,15 @@ export default {
     sendEmail: async (mailoption: any) => {
         return new Promise(async (resolve) => {
             mailoption.from = EMAIL;
+            var status = true;
             try {
                 await client.send(mailoption);
-                resolve(true);
             } catch(e) {
+                status = false;
                 console.log('Error while sending email -->', e);
-                resolve(false);
             } finally {
-                client.close();
+                // await client.close();
+                resolve(status);
             }
         });
     }

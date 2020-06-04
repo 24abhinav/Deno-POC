@@ -7,7 +7,7 @@ export default {
                 <head></head>
                 <body>
                     <div>
-                        <h4>Welcome, ${userData.name}</h4>
+                        <h4>Welcome, ${userData.name || 'Guest'}</h4>
                     </div>
                 </body>
             </html>
