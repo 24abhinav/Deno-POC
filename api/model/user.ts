@@ -6,6 +6,7 @@ const userModel = db.collection('user');
 import bcrypt from '../util/bcrypt.ts';
 import tokenService from '../util/token.ts';
 import emailService from '../util/email.ts';
+import emailTemplate from '../views/emailTemplates.ts';
 
 
 export default {
@@ -35,8 +36,8 @@ export default {
         const mailOption = {
             from: '',
             to: value.email,
-            subject: 'Welcome to deno App',
-            content: 'Sign up successfull',
+            subject: 'Welcome to deno App ' + value.name ?? 'Guest',
+            content: emailTemplate.signUpWelcome(value)
         }
         ctx.response.status = 201;
         ctx.response.body = {

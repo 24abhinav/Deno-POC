@@ -4,7 +4,7 @@ import { env } from '../util/packages.ts';
 
 const key = env.LOGIN_SECRET;
 const payload: Payload = {
-  exp: setExpiration(new Date().getTime() + 600000),
+  exp: setExpiration(new Date().getTime() + +env.TOKEN_EXPIRATION_TIME),
 }
 const header: Jose = {
   alg: "HS256",

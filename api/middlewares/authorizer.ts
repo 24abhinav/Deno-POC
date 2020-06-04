@@ -16,7 +16,7 @@ export default {
                 ctx.response.status = 401
                 ctx.response.body = {
                     status: 401,
-                    message: 'session has been expired!'
+                    message: 'Your session has been expired! Please login again'
                 }
             } else {
                 ctx.request['tokenData'] = isTokenValid;
