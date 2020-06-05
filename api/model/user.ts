@@ -143,6 +143,6 @@ export default {
                 message: "user doesn't exist"
             };
         }
-    }
+    },
 
-}
+};

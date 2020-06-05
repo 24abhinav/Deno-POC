@@ -10,5 +10,5 @@ export {
     renderFile,
     cwd,
     stdout,
-    copy
-}
+    copy,
+};

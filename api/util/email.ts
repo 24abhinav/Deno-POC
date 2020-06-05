@@ -11,10 +11,9 @@ const params = {
     port: 465,
     username: EMAIL,
     password: EMAIL_PASSWORD,
-}
+};
   
 await client.connectTLS(params);
-
 
 export default {
     sendEmail: async (mailoption: any) => {
@@ -31,5 +30,6 @@ export default {
                 resolve(status);
             }
         });
-    }
+    },
+
 };

@@ -1,5 +1,6 @@
 export default {
     cronJob: async () => {
-        console.log("cron running!")
-    }
-}
+        console.log("cron running!");
+    },
+
+};

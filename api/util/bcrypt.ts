@@ -13,6 +13,6 @@ export default {
             const result = await bcrypt.compare(password, hashedPassword);
             resolve(result);
         });
-    }
+    },
 
 };
