@@ -7,6 +7,7 @@ import router from './api/router/router.ts';
 import protectedRoutes from './api/router/protectedRoutes.ts';
 import authorizer from './api/middlewares/authorizer.ts';
 import cronService from './api/util/cron.ts';
+import fileService from './api/util/files.ts';
 
 
 
